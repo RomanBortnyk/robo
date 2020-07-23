@@ -1,0 +1,218 @@
+{
+	"info": {
+		"_postman_id": "0a47da2e-fec3-45d8-938b-ec6822036291",
+		"name": "robo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get student by id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-API-Key",
+						"value": "d0ae13e0-04ca-44bf-b504-75336b9486f3"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://robotest-env.eba-bcg2uvg2.us-east-2.elasticbeanstalk.com:80/students/12345675",
+					"protocol": "http",
+					"host": [
+						"robotest-env",
+						"eba-bcg2uvg2",
+						"us-east-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"port": "80",
+					"path": [
+						"students",
+						"12345675"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get students",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-API-Key",
+						"value": "d0ae13e0-04ca-44bf-b504-75336b9486f3"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://robotest-env.eba-bcg2uvg2.us-east-2.elasticbeanstalk.com:80/students?sort=dateOfBirth,desc",
+					"protocol": "http",
+					"host": [
+						"robotest-env",
+						"eba-bcg2uvg2",
+						"us-east-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"port": "80",
+					"path": [
+						"students"
+					],
+					"query": [
+						{
+							"key": "sort",
+							"value": "dateOfBirth,desc"
+						}
+					]
+				},
+				"description": "1. sort=lastName,asc - sort by last name alphabetically\n1. sort=schoolGrade,desc - sort by school grade (high to low)\n1. sort=dateOfBirth,desc - sort by age youngest to oldest"
+			},
+			"response": []
+		},
+		{
+			"name": "Get average or deviation by grade",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-API-Key",
+						"value": "d0ae13e0-04ca-44bf-b504-75336b9486f3"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://robotest-env.eba-bcg2uvg2.us-east-2.elasticbeanstalk.com:80/students/grade/10?stats=avg&stats=dev",
+					"protocol": "http",
+					"host": [
+						"robotest-env",
+						"eba-bcg2uvg2",
+						"us-east-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"port": "80",
+					"path": [
+						"students",
+						"grade",
+						"10"
+					],
+					"query": [
+						{
+							"key": "stats",
+							"value": "avg"
+						},
+						{
+							"key": "stats",
+							"value": "dev"
+						}
+					]
+				},
+				"description": "To include to the response \n1. average:\t\t\t\tadd param stats=avg\n1. standard deviation:\tadd param stats=dev"
+			},
+			"response": []
+		},
+		{
+			"name": "Create student",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "X-API-Key",
+						"value": "d0ae13e0-04ca-44bf-b504-75336b9486f3"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"studentId\": \"12663444\",\n  \"firstName\": \"Stepan1\",\n  \"lastName\": \"Aharingan\",\n  \"dateOfBirth\": \"22/06/2009\",\n  \"schoolGrade\": 10,\n  \"studentsAverage\": 50\n}"
+				},
+				"url": {
+					"raw": "http://robotest-env.eba-bcg2uvg2.us-east-2.elasticbeanstalk.com:80/students",
+					"protocol": "http",
+					"host": [
+						"robotest-env",
+						"eba-bcg2uvg2",
+						"us-east-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"port": "80",
+					"path": [
+						"students"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete student by id",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-API-Key",
+						"value": "d0ae13e0-04ca-44bf-b504-75336b9486f3"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://robotest-env.eba-bcg2uvg2.us-east-2.elasticbeanstalk.com:80/students/12345675",
+					"protocol": "http",
+					"host": [
+						"robotest-env",
+						"eba-bcg2uvg2",
+						"us-east-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"port": "80",
+					"path": [
+						"students",
+						"12345675"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete all students",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-API-Key",
+						"value": "d0ae13e0-04ca-44bf-b504-75336b9486f3"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://robotest-env.eba-bcg2uvg2.us-east-2.elasticbeanstalk.com:80/students",
+					"protocol": "http",
+					"host": [
+						"robotest-env",
+						"eba-bcg2uvg2",
+						"us-east-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"port": "80",
+					"path": [
+						"students"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
